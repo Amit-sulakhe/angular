@@ -1,0 +1,21 @@
+<form [formGroup]="form">
+  <dl>
+    <dt>Username</dt>
+    <dd>
+      <input type="text" formControlName="username" placeholder="Enter Name" />
+    </dd>
+    <dt>Password</dt>
+    <dd>
+      <input
+        type="password"
+        formControlName="password"
+        placeholder="Enter Password"
+      />
+    </dd>
+    <dt>Email</dt>
+    <dd>
+      <input type="email" formControlName="email" placeholder="Enter Email" />
+    </dd>
+  </dl>
+  <button type="submit">Submit</button>
+</form>

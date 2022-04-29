@@ -1,0 +1,402 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "assignment": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/assignment",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "assignment:build:production"
+            },
+            "development": {
+              "browserTarget": "assignment:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "assignment:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "daytwo": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/daytwo",
+      "sourceRoot": "projects/daytwo/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/daytwo",
+            "index": "projects/daytwo/src/index.html",
+            "main": "projects/daytwo/src/main.ts",
+            "polyfills": "projects/daytwo/src/polyfills.ts",
+            "tsConfig": "projects/daytwo/tsconfig.app.json",
+            "assets": [
+              "projects/daytwo/src/favicon.ico",
+              "projects/daytwo/src/assets"
+            ],
+            "styles": [
+              "projects/daytwo/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/daytwo/src/environments/environment.ts",
+                  "with": "projects/daytwo/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "daytwo:build:production"
+            },
+            "development": {
+              "browserTarget": "daytwo:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "daytwo:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/daytwo/src/test.ts",
+            "polyfills": "projects/daytwo/src/polyfills.ts",
+            "tsConfig": "projects/daytwo/tsconfig.spec.json",
+            "karmaConfig": "projects/daytwo/karma.conf.js",
+            "assets": [
+              "projects/daytwo/src/favicon.ico",
+              "projects/daytwo/src/assets"
+            ],
+            "styles": [
+              "projects/daytwo/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "daytask": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/daytask",
+      "sourceRoot": "projects/daytask/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/daytask",
+            "index": "projects/daytask/src/index.html",
+            "main": "projects/daytask/src/main.ts",
+            "polyfills": "projects/daytask/src/polyfills.ts",
+            "tsConfig": "projects/daytask/tsconfig.app.json",
+            "assets": [
+              "projects/daytask/src/favicon.ico",
+              "projects/daytask/src/assets"
+            ],
+            "styles": [
+              "projects/daytask/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/daytask/src/environments/environment.ts",
+                  "with": "projects/daytask/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "daytask:build:production"
+            },
+            "development": {
+              "browserTarget": "daytask:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "daytask:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/daytask/src/test.ts",
+            "polyfills": "projects/daytask/src/polyfills.ts",
+            "tsConfig": "projects/daytask/tsconfig.spec.json",
+            "karmaConfig": "projects/daytask/karma.conf.js",
+            "assets": [
+              "projects/daytask/src/favicon.ico",
+              "projects/daytask/src/assets"
+            ],
+            "styles": [
+              "projects/daytask/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "taskthree": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/taskthree",
+      "sourceRoot": "projects/taskthree/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/taskthree",
+            "index": "projects/taskthree/src/index.html",
+            "main": "projects/taskthree/src/main.ts",
+            "polyfills": "projects/taskthree/src/polyfills.ts",
+            "tsConfig": "projects/taskthree/tsconfig.app.json",
+            "assets": [
+              "projects/taskthree/src/favicon.ico",
+              "projects/taskthree/src/assets"
+            ],
+            "styles": [
+              "projects/taskthree/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/taskthree/src/environments/environment.ts",
+                  "with": "projects/taskthree/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "taskthree:build:production"
+            },
+            "development": {
+              "browserTarget": "taskthree:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "taskthree:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/taskthree/src/test.ts",
+            "polyfills": "projects/taskthree/src/polyfills.ts",
+            "tsConfig": "projects/taskthree/tsconfig.spec.json",
+            "karmaConfig": "projects/taskthree/karma.conf.js",
+            "assets": [
+              "projects/taskthree/src/favicon.ico",
+              "projects/taskthree/src/assets"
+            ],
+            "styles": [
+              "projects/taskthree/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "assignment"
+}
